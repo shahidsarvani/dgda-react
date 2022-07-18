@@ -1,0 +1,245 @@
+
+header {
+  width: 100%;
+  height: 90px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: 999;
+}
+header {
+  max-width: 1920px;
+  margin: 0 auto;
+  right: 0;
+}
+section {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.header_inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+.primary-btn {
+  background-color: #5DFFE8;
+  padding: 12px 30px;
+  text-decoration: none;
+  color: #000;
+  border: 2px solid #5DFFE8;
+  border-radius: 50px;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+}
+
+.primary-btn:hover {
+  background-color: transparent;
+  color: #5DFFE8;
+  border: 2px solid #5DFFE8;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+}
+.header_inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.mobile-nav-close-btn img {
+  max-width: 25px;
+  -webkit-filter: brightness(0.6);
+          filter: brightness(0.6);
+}
+.mobile-nav-close {
+  display: none;
+  position: absolute;
+  color: #fff;
+  right: 25px;
+  top: 25px;
+  font-size: 30px;
+}
+.mobile-nav-close-btn {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.mobile-nav-close-btn:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  -webkit-transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.navbar_diri .nav_cp_dp .navbar-nav .nav-item .nav-link:hover {
+  -webkit-transition: .5s all ease-in;
+  transition: .5s all ease-in;
+}
+
+.navbar_dp .nav_cp_dp .navbar-nav .nav-item .nav-link {
+  -webkit-transition: .5s all ease-in !important;
+  transition: .5s all ease-in !important;
+}
+
+.logo_diriyah {
+  width: 220px;
+  height: 60px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo_diriyah a img {
+  width: 100%;
+}
+
+.navbar_diri .nav_cp_dp .navbar-nav .nav-item .nav-link {
+  text-decoration: none;
+  color: #FFF;
+  font-size: 16px;
+  border: 2px solid transparent;
+  padding: 5px 10px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  -webkit-transition: 250ms all ease-in;
+  transition: 250ms all ease-in;
+}
+
+.navbar_diri .nav_cp_dp .navbar-nav .nav-item .nav-link:hover, 
+.navbar_diri .nav_cp_dp .navbar-nav .nav-item .nav-link.active {
+  border: 2px solid #14484B;
+  border-radius: 50px;
+  color: #5DFFE8;
+}
+
+@media (max-width: 992px) {
+  .navbar_diri .nav_cp_dp .navbar-nav .nav-item .nav-link {
+    padding: 5px 1px;
+  }
+  .navbar_diri .nav_cp_dp .navbar-nav .nav-item .nav-link:hover, 
+  .navbar_diri .nav_cp_dp .navbar-nav .nav-item .nav-link.active {
+    border: 0px solid #14484B;
+  }
+  .navbar-toggler {
+    padding: .25rem 0rem !important;
+  }
+  .navbar-expand-sm .navbar-toggler {
+    display: block !important;
+  }
+  header .container {
+    position: relative;
+  }
+  .navbar-collapse {
+    -ms-flex-preferred-size: unset !important;
+        flex-basis: unset !important;
+    -webkit-box-flex: unset;
+        -ms-flex-positive: unset;
+            flex-grow: unset;
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
+    position: absolute;
+    left: auto;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #010e16;
+    max-width: 700px;
+    margin: 0 auto !important;
+  }
+  .logo_diriyah img {
+    background-color: transparent;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+  }
+  .logo_diriyah.opened img {
+    border-radius: 0px;
+    -webkit-transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+  }
+  .logo_diriyah {
+    width: 220px;
+  }
+  .logo_diriyah {
+    width: 50%;
+    z-index: 9999;
+  }
+  .navbar {
+    position: inherit;
+    width: 50%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .navbar-expand-sm .navbar-nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .navbar-nav {
+    margin-top: 75px;
+  }
+  .mobile-nav-close {
+    display: block;
+  }
+  .collapse:not(.show) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-nav .nav-item {
+    padding-left: 30px;
+    max-width: 93%;
+  }
+  .navbar-collapse {
+    left: 0;
+  }
+}

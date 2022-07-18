@@ -1,0 +1,88 @@
+
+  /* @font-face {
+    font-family: "Kermes3-SemiBold";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Kermes3-SemiBold"), url("../fonts/kermes3/woff/Kermes3-Bold.woff") format("woff");
+  } */
+
+
+  
+[lang="ar"] body,
+html[lang="ar"], [lang="ar"] div, [lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3, [lang="ar"] h4, [lang="ar"] h5, [lang="ar"] h6, [lang="ar"] p, [lang="ar"] span {
+  font-family: "Kermes3-SemiBold" !important;
+}
+[lang="ar"] body {
+    direction:rtl;
+}
+
+[lang="ar"] .dg_ftar_navtitle_link{
+    display: flex !important;
+}
+
+[lang="ar"] .dg_ften_navtitle_link{
+    display: none !important;
+}
+
+[lang="ar"] .dg_ft_nav_item.dg_ft_nav_item1 img{
+    transform: rotate(180deg);
+}
+
+[lang="ar"] .load_log_col .logo_diriyah{
+    left: unset !important;
+    right: 45%;
+    transform: translate(50%, 50%);
+}
+[lang="ar"] .navbar-expand-sm .navbar-collapse.nav_cp_dp .navbar-nav .nav-item:first-child {
+    margin-right: 0px;
+    margin-left: 166px;
+}
+[lang="ar"] span.sm_video_end_timer{
+    float: left !important;
+}
+[lang="ar"] .ml_list_wrap.active{
+    margin-left: unset !important;
+    margin-right: 0 !important;
+}
+[lang="ar"] .ml_list_wrap{
+    margin-left: unset !important;
+    margin-right: 0px;
+}
+[lang="ar"] .load_log_col .logo_diriyah{
+    margin-top: -45px;
+}
+[lang="ar"] .ml_dg_list{
+    padding-left: 0;
+    padding-right: 40px;
+}
+[lang="ar"] .dg_ft_nav_list{
+    margin: 0 auto !important;
+}
+[lang="ar"] .dg_ft_nav_titles{
+    left: unset;
+    right: 50px;
+}
+[lang="ar"] .dg_ft_ar_back_item img, [lang="ar"] .dg_lights_screen img{
+    transform: rotate(180deg);
+}
+[lang="ar"] .basementfloors_icon{
+    margin: 0 -50px 50px auto !important;
+}
+[lang="ar"] .lang_items a{
+    font-size: 60px;
+}
+[lang="ar"] .lang-switcher{
+    margin-top: 190px;
+}
+[lang="ar"] .sm_vc_list .sm_vc_fastrewind_item img, [lang="ar"] .sm_vc_list .sm_vc_fastforward_item img{
+    transform: rotate(180deg);
+}
+[lang="ar"] .sm_video_timers{
+    text-align: right;
+}
+[lang="ar"] .dg_lights_main_row{
+    text-align: right;
+}
+[lang="ar"] .dg_lights_main_row.dg_lights_main_row2{
+    text-align: right !important;
+}
