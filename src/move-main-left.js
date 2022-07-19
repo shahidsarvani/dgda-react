@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
+import {addHistory} from './history';
 
 function move_main_left() {
+  addHistory('move_main_left');
     ///////////////////english animations///////////////////////
     gsap.to(".title_show_control", {
       opacity: 0,

@@ -1,6 +1,9 @@
 import { gsap } from "gsap";
+import {addHistory} from './history';
+
 
 function move_homeactive_ar() {
+  addHistory('move_homeactive_ar');
     gsap.to(".logo_diriyah .eng_logo", {
         opacity: 1,
         display: 'block',

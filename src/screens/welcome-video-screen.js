@@ -5,9 +5,9 @@ import splash_video_fade from '../splash-video-fade';
 import {addHistory} from '../history';
 import {clearHistory} from '../history';
 
-
+clearHistory();
 function Welcomesection() {
-    clearHistory();
+    
     const addToHistory = () => {
         //addHistory('splash_video_fade');
         splash_video_fade()

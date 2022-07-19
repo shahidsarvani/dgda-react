@@ -33,7 +33,7 @@ class Roomselection extends Component {
 
         let room = this.state.rooms.filter(room => room.id == roomid)[0];
         this.props.onSetRoomID(room);
-        addHistory('move_left_en');
+        //addHistory('move_left_en');
         move_left_en();
     }
     render() {

@@ -48,19 +48,19 @@ class Footer extends Component {
                 //move_step_back();
               break;
             case 'main_page':
-                addHistory('move_homeactive_en');
+                //addHistory('move_homeactive_en');
                 move_homeactive_en();
               break;
             case 'model':
-                addHistory('move_showmodelactive');
+                //addHistory('move_showmodelactive');
                 move_showmodelactive();
               break;
             case 'video_wall':
-                addHistory('videowallsactive');
-                videowallsactive();
+                //addHistory('videowallsactive', 'videowallsactive');
+                videowallsactive('videowallsactive');
               break;
             case 'lights':
-                addHistory('move_lightsactive');
+                //addHistory('move_lightsactive');
                 move_lightsactive();
               break;
             default:

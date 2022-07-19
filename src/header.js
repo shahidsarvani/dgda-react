@@ -14,6 +14,7 @@ import React, { Component } from 'react';
 import Translator from './translator';
 import axios from 'axios';
 import './axios';
+import {addHistory} from './history';
 
 class Header extends Component {
     constructor(props) {
@@ -55,7 +56,9 @@ class Header extends Component {
             document.documentElement.lang = 'ar';
             move_left_ar();
             this.props.onSetLang('ar');
+            addHistory('move_left_ar', 'dg_afrs_screen');
         }
+        
     
         
     }

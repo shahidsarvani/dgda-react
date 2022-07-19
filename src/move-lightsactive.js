@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
-
+import {addHistory} from './history';
+ 
 function move_lightsactive() {
+  addHistory('move_lightsactive', 'dg_lights_screen');
     gsap.to(".dg_vwalls_screen", {
       opacity: 0,
       x: -3000,

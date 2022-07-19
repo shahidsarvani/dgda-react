@@ -6,9 +6,11 @@ import move_start_basementfloors_left from '../move-start-basementfloors-left';
 import start_show_icon from '../images/icons/play-icon.svg';
 import model_districts from '../images/icons/model-zones.svg';
 import Basementfloors_icon from '../images/icons/basement-floors-updated.svg';
+import videowallsactive from '../move-videowallsactive';
 import '../customjqjs';
 import Translator from '../translator';
-import {addHistory} from '../history';
+import vwalls_nonactive_icon from '../images/icons/ftr-vwalls-icon.svg';
+//import {addHistory} from '../history';
 
 import React, { Component } from 'react';
 class Afterroomselection extends Component {
@@ -31,16 +33,20 @@ class Afterroomselection extends Component {
         
     }
     startShow() {
-        addHistory('move_startshow_left');
+        //addHistory('move_startshow_left');
         move_startshow_left();
     }
     modelDistrict() {
-        addHistory('move_start_modellights_left');
+        //addHistory('move_start_modellights_left');
         move_start_modellights_left();
     }
     basementFloors() {
-        addHistory('move_start_basementfloors_left');
+        //addHistory('move_start_basementfloors_left');
         move_start_basementfloors_left();
+    }
+    videoWalls() {
+        //addHistory('move_start_basementfloors_left');
+        videowallsactive();
     }
     render() {
         return (
@@ -55,24 +61,37 @@ class Afterroomselection extends Component {
                                     <h3 className="dg_afrs_col1_h">{this.tran.T('STARTSHOW')}</h3>
                                 </a>
                             </div>
-                            {
-                                (this.state.has_modal === 1)  ? (
+                            
+                                {
+                                    (this.state.has_modal === 1)  ? (
                                     <>
+                                        <div className="col-4 dg_afrs_col">
+                                            <a className='start_modelzone_a' href="#" onClick={() => {this.modelDistrict()}}>
+                                                <img class="screensaver_icon" src={model_districts} alt="night-scene"/>
+                                                <h3 className="dg_afrs_col2_h">{this.tran.T('MODEL_DISTRICTS')}</h3>
+                                            </a>
+                                        </div>
                                     <div className="col-4 dg_afrs_col">
-                                        <a className='start_modelzone_a' href="#" onClick={() => {this.modelDistrict()}}>
-                                            <img class="screensaver_icon" src={model_districts} alt="night-scene"/>
-                                            <h3 className="dg_afrs_col2_h">{this.tran.T('MODEL_DISTRICTS')}</h3>
+                                        <a className='start_basementfloors_a' href="#" onClick={() => {this.basementFloors()}}>
+                                            <img class="basementfloors_icon" src={Basementfloors_icon} alt="basementfloors"/>
+                                            <h3 className="dg_afrs_col3_h">{this.tran.T('BASEMENT_FLOORS')}</h3>
                                         </a>
                                     </div>
-                                <div className="col-4 dg_afrs_col">
-                                    <a className='start_basementfloors_a' href="#" onClick={() => {this.basementFloors()}}>
-                                        <img class="basementfloors_icon" src={Basementfloors_icon} alt="basementfloors"/>
-                                        <h3 className="dg_afrs_col3_h">{this.tran.T('BASEMENT_FLOORS')}</h3>
-                                    </a>
-                                </div>
-                                </>
-                                ) : null
-                            }
+                                    </>
+                                    ) : null
+                                }
+                                {
+                                    (this.state.has_modal === 0)  ? (
+                                    <div className="col-4 dg_afrs_col">
+                                        <a className='start_modelzone_a' href="#" onClick={() => {this.videoWalls()}}>
+                                            <img class="screensaver_icon" src={vwalls_nonactive_icon} alt="night-scene"/>
+                                            <h3 className="dg_afrs_col2_h">{this.tran.T('VIDEO_WALL')}</h3>
+                                        </a>
+                                    </div>
+                                    ) : null
+                                }
+                                
+                            
                         </div>
                     </div>
                 </section>

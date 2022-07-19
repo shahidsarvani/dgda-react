@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
+import {addHistory} from './history';
 
 function move_homeactive_en() {
+    addHistory('move_homeactive_en', 'dg_rs_screen');
     gsap.to(".home_ar", {
         opacity: 0,
         display: 'none',

@@ -43,7 +43,6 @@ class App extends Component {
         <Mainenglish  roomId={this.state.roomid} hasModal={this.state.hasmodal} onSetRoomID={this.setRoom} lang={this.state.lang}/>
         <Mainarabic/>
         <Footeren  lang={this.state.lang}/>
-        <Footerar />
       </div>
     );
   }

@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
+import {addHistory} from './history';
 
 function move_left_en() {
+  addHistory('move_left_en', 'dg_afrs_screen');
   gsap.to(".diriyah_room_page", {
     opacity: 1,
     display: 'block',
@@ -11,53 +13,6 @@ function move_left_en() {
       display: 'none',
       duration: 1,
   });
-  // gsap.to(".header-wrap.header_ar .logo_diriyah .ar_logo", {
-  //   opacity: 1,
-  //   display: 'block',
-  //   left: 'unset',
-  //   right: 0,
-  //   duration: 0,
-  //   delay: 0,
-  //   transform: 'translate(0%, 0%)'
-  // });
-
-  
-
-  // gsap.to(".header-wrap.header_ar .logo_diriyah .ar_logo", {
-  //   opacity: 1,
-  //   display: 'block',
-  //   left: '0',
-  //   duration: 0,
-  //   delay: 0,
-  //   transform: 'translate(0%, 0%)'
-  // });
-
-  // gsap.to(".header-wrap.header_en .logo_diriyah .eng_logo", {
-  //   display: 'block',
-  //   opacity: 1,
-  //   duration: 0,
-  //   delay: 0,
-  //   transform: 'translate(0%, 0%)'
-  // });
-
-  // gsap.to(".header-wrap.header_ar .logo_diriyah .eng_logo", {
-  //   display: 'none',
-  //   opacity: 0,
-  //   duration: 0,
-  //   delay: 0,
-  //   transform: 'translate(0%, 0%)'
-  // });
-
-  // gsap.to(".header-wrap.header_en .logo_diriyah .ar_logo", {
-  //   opacity: 0,
-  //   display: 'none',
-  //   left: '0',
-  //   duration: 0,
-  //   delay: 0,
-  //   transform: 'translate(0%, 0%)'
-  // });
-
-  
   
   gsap.to(".header-wrap .logo_diriyah", {
     right: 'unset',
@@ -141,19 +96,19 @@ function move_left_en() {
   });
 
   
+  
 
-
-  gsap.fromTo(".dg_afrs_screen", {
-    opacity: 0,
-    x: -3000,
-    duration: 1,
-    visibility: 'hidden',
-  }, {
-    opacity: 1,
-    x: 0,
-    duration: 1,
-    visibility: 'visible',
-  });
+  // gsap.fromTo(".dg_afrs_screen", {
+  //   opacity: 0,
+  //   x: -3000,
+  //   duration: 1,
+  //   visibility: 'hidden',
+  // }, {
+  //   opacity: 1,
+  //   x: 0,
+  //   duration: 1,
+  //   visibility: 'visible',
+  // });
   
   gsap.to(".dg_rs_screen", {
     opacity: 0,
@@ -177,45 +132,6 @@ function move_left_en() {
     opacity: 1,
   });
 
-  
-
-  // gsap.to(".dg_sm_screen", {
-  //   opacity: 0,
-  //   x: 3000,
-  //   duration: 1
-  // });
-
-  // gsap.to(".basementfloors_screen", {
-  //   opacity: 0,
-  //   x: 3000,
-  //   duration: 1
-  // });
-  // gsap.to(".video_walls_screen_wrap", {
-  //   opacity: 0,
-  //   x: 3000,
-  //   duration: 1
-  // });
-  // gsap.to(". lights_screen_wrap", {
-  //   opacity: 0,
-  //   x: 3000,
-  //   duration: 1
-  // });
-  
-  // gsap.to(".modelshow_screen", {
-  //   opacity: 0,
-  //   x: 3000,
-  //   duration: 1
-  // });
-  // gsap.to(".show_controls_screen", {
-  //   opacity: 0,
-  //   x: 3000,
-  //   duration: 1
-  // });
-  // gsap.to(".model_lights_screen", {
-  //   opacity: 0,
-  //   x: 3000,
-  //   duration: 1
-  // });
   gsap.to(".dg_sm_screen", {
     opacity: 0,
     x: 3000,
