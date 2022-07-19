@@ -15,7 +15,8 @@ import './customjqjs';
 import move_step_back from './move-step-back';
 import Translator from './translator';
 import React, { Component } from 'react';
-
+import {removeHistory} from './history';
+import {addHistory} from './history';
 
 class Footerar extends Component {
     constructor(props) {
@@ -43,18 +44,22 @@ class Footerar extends Component {
         })
         switch(menu) {
             case 'back':
-                move_step_back();
+                removeHistory();
               break;
             case 'main_page':
+                addHistory('move_homeactive_ar');
                 move_homeactive_ar();
               break;
             case 'model':
+                addHistory('move_showmodelactive');
                 move_showmodelactive();
               break;
             case 'video_wall':
+                addHistory('move_videowallsactive');
                 move_videowallsactive();
               break;
             case 'lights':
+                addHistory('move_lightsactive');
                 move_lightsactive();
               break;
             default:

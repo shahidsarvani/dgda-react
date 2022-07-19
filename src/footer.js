@@ -15,6 +15,8 @@ import back_icon from './images/icons/backward-light-icon.svg';
 import './customjqjs';
 import Translator from './translator';
 import React, { Component } from 'react';
+import {removeHistory} from './history';
+import {addHistory} from './history';
 
 class Footer extends Component {
     constructor(props) {
@@ -42,18 +44,23 @@ class Footer extends Component {
         })
         switch(menu) {
             case 'back':
-                move_step_back();
+                removeHistory();
+                //move_step_back();
               break;
             case 'main_page':
+                addHistory('move_homeactive_en');
                 move_homeactive_en();
               break;
             case 'model':
+                addHistory('move_showmodelactive');
                 move_showmodelactive();
               break;
             case 'video_wall':
+                addHistory('videowallsactive');
                 videowallsactive();
               break;
             case 'lights':
+                addHistory('move_lightsactive');
                 move_lightsactive();
               break;
             default:

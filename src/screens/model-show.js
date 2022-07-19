@@ -18,6 +18,7 @@ import React, { Component } from 'react';
 class Modelshow extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             roomid: '',
             video_length: 0,

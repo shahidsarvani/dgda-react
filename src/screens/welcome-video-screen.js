@@ -2,10 +2,16 @@ import '../bootstrap.min.css';
 import '../mystyle.css';
 import video from '../videos/dgdA_UI_Intro-10secs.mp4';
 import splash_video_fade from '../splash-video-fade';
-
+import {addHistory} from '../history';
+import {clearHistory} from '../history';
 
 
 function Welcomesection() {
+    clearHistory();
+    const addToHistory = () => {
+        //addHistory('splash_video_fade');
+        splash_video_fade()
+    }
   return (
     <div className="welcome_video_screen">
 
@@ -18,7 +24,7 @@ function Welcomesection() {
                                 <source src="movie.ogg" type="video/ogg"/>
                                 Your browser does not support the video tag.
                         </video>
-                        <div id="main_video_btn" className="main_video_btn" onClick={splash_video_fade}>
+                        <div id="main_video_btn" className="main_video_btn" onClick={addToHistory}>
                             <a id="video_start_btn" href="#"><span> أنقر لبدء العرض</span><br/>TAP TO START THE SHOW</a>
                         </div>
                     </div>
