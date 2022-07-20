@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
-
+import {addHistory} from './history';
+ 
 function move_wadi_left_ar() { 
+  addHistory('move_wadi_left_ar');
     gsap.to(".diriyah_room_page", {
         opacity: 0,
         display: 'none',

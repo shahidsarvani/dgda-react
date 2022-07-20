@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
-
+import {addHistory} from './history';
+ 
 function move_startshow_left() {
+  addHistory('move_startshow_left', 'dg_sc_screen');
   gsap.to(".title_show_control", {
     opacity: 1,
     display: 'block',
@@ -17,17 +19,6 @@ function move_startshow_left() {
     x: -3000,
     duration: 1
   });
-  // gsap.fromTo(".dg_sm_screen", {
-  //   opacity: 0,
-  //   x: 3000,
-  //   duration: 1,
-  //   visibility: 'hidden',
-  // }, {
-  //   opacity: 1,
-  //   x: 0,
-  //   duration: 1,
-  //   visibility: 'visible',
-  // });
   gsap.fromTo(".dg_sc_screen", {
     opacity: 0,
     x: 3000,

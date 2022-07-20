@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
-
+import {addHistory} from './history';
+ 
 function move_vwalls_right() {
+  addHistory('move_vwalls_right');
   gsap.fromTo(".dg_vwalls_screen", {
     opacity: 1,
     x: 0,

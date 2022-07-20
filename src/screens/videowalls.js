@@ -21,8 +21,117 @@ class Videowalls extends Component {
         super(props);
         this.state = {
             zones: [],
+            zoneid: '',
             room_id: '',
+            video_length: 0,
+            countdown: 0,
+            time_spend: 0,
+            status:'',
+            mystyle: {
+                    width: "0%",
+                    display: "block",
+                    height: "4.3628px",
+                    backgroundColor: "#003741",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                }
         }
+    }
+    tick() {
+        const current = this.state.countdown;
+        if (current <= 0) {
+            this.setState({
+                status: 'stop'
+            })
+            this.transition();
+
+        } else {
+          this.setState({ countdown: current - 1 , time_spend: this.state.time_spend + 1, status: 'start'}); 
+        }
+        let percent = (this.state.time_spend/this.state.video_length)*100;
+        this.setState(prevState => ({
+            mystyle: {                   
+                ...prevState.mystyle,
+                width: percent+"%",
+            }
+        }))
+    }
+
+    transition() {
+        clearInterval(this.timer);
+        // do something else here, presumably.
+    }
+    fancyTimeFormat(duration)
+    {   
+        // Hours, minutes and seconds
+        var hrs = ~~(duration / 3600);
+        var mins = ~~((duration % 3600) / 60);
+        var secs = ~~duration % 60;
+
+        // Output like "1:01" or "4:03:59" or "123:03:59"
+        var ret = "";
+
+        if (hrs > 0) {
+            ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+        }
+
+        ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+        ret += "" + secs;
+        return ret;
+    }
+    async runPlayApi(zoneid) {
+        if(this.state.status === 'stop') {
+
+            let res = await axios.post('zone/'+this.state.zoneid+'/play_scene');
+            this.startAgain();
+            this.startTimer();
+        }
+        if(this.state.status === 'pause')
+        {
+            let res = await axios.get('room/'+this.state.room_id+'/video/resume');
+            this.startTimer();
+        }
+    }
+    async runPauseApi() {
+        if(this.state.status !== 'pause') {
+            let res = await axios.get('room/'+this.state.room_id+'/video/pause');
+            this.setState({
+                status: 'pause',
+            })
+            this.transition();
+        }
+        
+    }
+    async runStopApi() {
+        if(this.state.status != 'stop') {
+            let res = await axios.post('room/'+this.state.room_id+'/video/stop');
+            this.setState({
+                countdown: this.state.video_length,
+                time_spend: 0,
+                status: 'stop',
+            })
+            this.transition();
+            this.setState(prevState => ({
+                mystyle: {                   
+                    ...prevState.mystyle,
+                    width: "0%",
+                }
+            }))
+        }
+    }
+    async runVolUpApi() {
+        let res = await axios.get('volume/increase');
+        console.log(res);
+    }
+    async runVolDownApi() {
+        let res = await axios.get('volume/decrease');
+        console.log(res);
+    }
+    async runVolMuteApi() {
+        let res = await axios.get('volume/mute');
+        console.log(res);
     }
     async componentDidMount() {}
     async componentDidUpdate(prevProps, prevState) {
@@ -47,8 +156,25 @@ class Videowalls extends Component {
         
     }
     async runZonePlaySceneApi(zoneid) {
-        let res = await axios.post('zone/'+zoneid+'/play_scene');;
-        console.log(res);
+        let res = await axios.post('zone/'+zoneid+'/play_scene');
+        let length = res.data.response;
+        this.setState({
+            video_length: length,
+            zoneid: zoneid,
+        })
+
+        const current = length;
+        this.setState({ countdown: current - 1 , time_spend: 0, status: 'start'});
+        this.timer = null;
+        this.timer = setInterval(() => this.tick(), 1000);
+    }
+    startTimer() {
+        this.timer = null;
+        this.timer = setInterval(() => this.tick(), 1000);
+    }
+    startAgain() {
+        const current = this.state.video_length;
+        this.setState({ countdown: current - 1 , time_spend: 0, status: 'start'});
     }
     render() {
         return (
@@ -64,11 +190,11 @@ class Videowalls extends Component {
                                 <div className="sm_video_track_wrap">
                                     <div className="sm_video_track">
                                         <div className="sm_video_unplayed_track"></div>
-                                        <div className="sm_video_played_track"></div>
+                                        <div className={this.state.mystyle}></div>
                                     </div>
                                     <div className="sm_video_timers">
-                                        <span className="sm_video_start_timer">1:45</span>
-                                        <span className="sm_video_end_timer">-0.30</span>
+                                        <span className="sm_video_start_timer">{this.fancyTimeFormat(this.state.time_spend)}</span>
+                                        <span className="sm_video_end_timer">{this.fancyTimeFormat(this.state.countdown)}</span>
                                     </div>
                                 </div>
                                 <div className="sm_video_controls">
@@ -79,17 +205,17 @@ class Videowalls extends Component {
                                             </a>
                                         </li>
                                         <li className="sm_vc_item sm_vc_play_item tahir">
-                                            <a href="#">
+                                            <a href="#" onClick={() => this.runPlayApi()}>
                                                 <img src={Videoplayicon} alt="sm-video-play" />
                                             </a>
                                         </li>
                                         <li className="sm_vc_item sm_vc_pause_item">
-                                            <a href="#">
+                                            <a href="#" onClick={() => this.runPauseApi()}>
                                                 <img src={Videopauseicon} alt="sm-video-play" />
                                             </a>
                                         </li>
                                         <li className="sm_vc_item sm_vc_stop_item">
-                                            <a href="#">
+                                            <a href="#"  onClick={() => this.runStopApi()}>
                                                 <img src={Videostopicon} alt="sm-video-play" />
                                             </a>
                                         </li>
@@ -99,17 +225,17 @@ class Videowalls extends Component {
                                             </a>
                                         </li>
                                         <li className="sm_vc_item sm_vc_lowvol_item">
-                                            <a href="#">
+                                            <a href="#"  onClick={() => this.runVolDownApi()}>
                                                 <img src={Videolowvolicon} alt="sm-video-play" />
                                             </a>
                                         </li>
                                         <li className="sm_vc_item sm_vc_heighvol_item">
-                                            <a href="#">
+                                            <a href="#" onClick={() => this.runVolUpApi()}>
                                                 <img src={Videohighvolicon} alt="sm-video-play" />
                                             </a>
                                         </li>
                                         <li className="sm_vc_item sm_vc_mute_item">
-                                            <a href="#">
+                                            <a href="#"  onClick={() => this.runVolMuteApi()}>
                                                 <img src={Videomutevolicon} alt="sm-video-play" />
                                             </a>
                                         </li>

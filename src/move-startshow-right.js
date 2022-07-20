@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
-
+import {addHistory} from './history';
+ 
 function move_startshow_right() {
+  addHistory('move_startshow_right');
   gsap.to(".dg_rs_screen", {
     opacity: 0,
     x: -3000,

@@ -1,8 +1,6 @@
 import { gsap } from "gsap";
-import {addHistory} from './history';
 
-function move_homeactive_en() {
-    addHistory('move_homeactive_en', 'dg_rs_screen');
+function move_homeactive_en_back(param) {
     gsap.to(".home_ar", {
         opacity: 0,
         display: 'none',
@@ -59,56 +57,58 @@ function move_homeactive_en() {
         delay: 0,
     })
     gsap.fromTo(".dg_rs_screen", {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        visibility: 'visible',
+    }, {
         opacity: 0,
         x: -3000,
         duration: 1,
         visibility: 'hidden',
-    }, {
+        
+    });
+    gsap.to(".dg_afrs_screen", {
         opacity: 1,
         x: 0,
         duration: 1,
         visibility: 'visible',
     });
-    gsap.to(".dg_afrs_screen", {
-        opacity: 0,
-        x: 3000,
-        duration: 1,
-        visibility: 'hidden',
-    });
     gsap.to(".dg_lights_screen", {
-        opacity: 0,
-        x: 3000,
+        opacity: 1,
+        x: 0,
         duration: 1,
-        visibility: 'hidden',
+        visibility: 'visible',
     });
     gsap.to(".dg_sm_screen", {
-        opacity: 0,
-        x: 3000,
+        opacity: 1,
+        x: 0,
         duration: 1,
-        visibility: 'hidden',
+        visibility: 'visible',
     });
     gsap.to(".dg_sc_screen", {
-        opacity: 0,
-        x: 3000,
+        opacity: 1,
+        x: 0,
         duration: 1,
-        visibility: 'hidden',
+        visibility: 'visible',
     });
     gsap.to(".dg_ss_screen", {
-        opacity: 0,
-        x: 3000,
+        opacity: 1,
+        x: 0,
         duration: 1,
-        visibility: 'hidden',
+        visibility: 'visible',
     });
     gsap.to(".ml_lights_screen", {
-        opacity: 0,
-        x: 3000,
+        opacity: 1,
+        x: 0,
         duration: 1,
-        visibility: 'hidden',
+        visibility: 'visible',
     });
     gsap.to(".dg_bf_screen", {
-        opacity: 0,
-        x: 3000,
-        duration: 1
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        visibility: 'visible',
     });
     gsap.fromTo(".dg_ft_cont_ar", {
         opacity: 1,
@@ -139,4 +139,4 @@ function move_homeactive_en() {
     });
 }
 
-export default move_homeactive_en;
+export default move_homeactive_en_back;

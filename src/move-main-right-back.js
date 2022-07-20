@@ -1,8 +1,6 @@
 import { gsap } from "gsap";
-import {addHistory} from './history';
- 
-function move_main_right() {
-  addHistory('move_main_right');
+
+function move_main_right_back() {
     ///////////////////arabic animations///////////////////////
     gsap.to(".title_show_control", {
       opacity: 0,
@@ -77,25 +75,21 @@ function move_main_right() {
     });
 
     gsap.fromTo(".header-arabic-wrap", {
-      opacity: 1,
-      x: 0,
-      duration: 1,
-      visibility: 'visible',
-    }, {
       opacity: 0,
       x: 3000,
       display: 'none',
       duration: 1,
       visibility: 'hidden',
+    }, {
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      display: 'block',
+      visibility: 'visible',
+      
     });
 
     gsap.fromTo(".header-wrap", {
-      opacity: 0,
-      x: -3000,
-      duration: 1,
-      display: 'none',
-      visibility: 'hidden',
-    }, {
       opacity: 1,
       x: 0,
       duration: 1,
@@ -103,30 +97,38 @@ function move_main_right() {
       position: 'absolute',
       width: '100%',
       visibility: 'visible',
-    });
-    ///////////////////arabic animations///////////////////////
-    gsap.fromTo(".main_en", {
+    }, {
       opacity: 0,
       x: -3000,
       duration: 1,
+      display: 'none',
       visibility: 'hidden',
-    }, {
+    });
+    ///////////////////arabic animations///////////////////////
+    gsap.fromTo(".main_en", {
       opacity: 1,
       x: 0,
       display: 'block',
       duration: 1,
       visibility: 'visible',
-    });
-    gsap.fromTo(".main_en .dg_afrs_screen", {
+    }, {
       opacity: 0,
       x: -3000,
       duration: 1,
       visibility: 'hidden',
-    }, {
+      
+    });
+    gsap.fromTo(".main_en .dg_afrs_screen", {
       opacity: 1,
       x: 0,
       duration: 1,
       visibility: 'visible',
+    }, {
+      
+      opacity: 0,
+      x: -3000,
+      duration: 1,
+      visibility: 'hidden',
     });
     gsap.fromTo(".main_en .dg_sm_screen", {
       opacity: 0,
@@ -138,6 +140,7 @@ function move_main_right() {
       x: -3000,
       duration: 1,
       visibility: 'hidden',
+      
     });
     gsap.fromTo(".main_en .dg_rs_screen", {
       opacity: 0,
@@ -221,82 +224,90 @@ function move_main_right() {
   
   
     gsap.fromTo(".main_ar", {
-      opacity: 1,
-      x: 0,
-      duration: 1,
-      visibility: 'visible',
-    }, {
       opacity: 0,
       x: 3000,
       duration: 1,
       display: 'none',
       visibility: 'hidden',
+    }, {
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      display: 'block',
+      visibility: 'visible',
+      
     });
     gsap.fromTo(".main_ar .dg_afrs_screen", {
       opacity: 0,
-      x: 0,
-      duration: 1,
-      visibility: 'visible',
-    }, {
-      opacity: 0,
       x: 3000,
       duration: 1,
       visibility: 'hidden',
+    }, {
+      opacity: 0,
+      x: 0,
+      duration: 1,
+      visibility: 'visible',
+      
     });
     gsap.fromTo(".main_ar .dg_sm_screen", {
       opacity: 0,
-      x: 0,
-      duration: 1,
-      visibility: 'visible',
-    }, {
-      opacity: 0,
       x: 3000,
       duration: 1,
       visibility: 'hidden',
+    }, {
+      opacity: 0,
+      x: 0,
+      duration: 1,
+      visibility: 'visible',
+      
     });
     gsap.fromTo(".main_ar .ml_lights_screen", {
       opacity: 0,
-      x: 0,
-      duration: 1,
-      visibility: 'visible',
-    }, {
-      opacity: 0,
       x: 3000,
       duration: 1,
       visibility: 'hidden',
+    }, {
+      opacity: 0,
+      x: 0,
+      duration: 1,
+      visibility: 'visible',
+      
     });
     gsap.fromTo(".main_ar .dg_bf_screen", {
       opacity: 0,
-      x: 0,
-      duration: 1,
-      visibility: 'visible',
-    }, {
-      opacity: 0,
       x: 3000,
       duration: 1,
       visibility: 'hidden',
+    }, {
+      opacity: 0,
+      x: 0,
+      duration: 1,
+      visibility: 'visible',
+      
     });
     gsap.fromTo(".main_ar .dg_vwalls_screen", {
       opacity: 0,
-      x: 0,
-      duration: 1,
-      visibility: 'visible',
-    }, {
-      opacity: 0,
       x: 3000,
       duration: 1,
       visibility: 'hidden',
+    }, {
+      opacity: 0,
+      x: 0,
+      duration: 1,
+      visibility: 'visible',
+      
     });
     gsap.fromTo(".main_ar .dg_lights_screen", {
       opacity: 0,
-      x: 0,
-      duration: 1,
-      visibility: 'visible',
-    }, {
-      opacity: 0,
       x: 3000,
       duration: 1,
       visibility: 'hidden',
+    }, {
+      opacity: 0,
+      x: 0,
+      duration: 1,
+      visibility: 'visible',
+      
     });
     gsap.fromTo(".dg_ft_cont_ar", {
       bottom: 0,
@@ -318,4 +329,4 @@ function move_main_right() {
     });
   }
 
-  export default move_main_right;
+  export default move_main_right_back;

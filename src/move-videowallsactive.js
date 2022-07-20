@@ -1,7 +1,16 @@
 import { gsap } from "gsap";
-
+import {addHistory} from './history';
+ 
 function videowallsactive() {
-    gsap.to(".title_show_control", {
+  addHistory('videowallsactive', 'dg_vwalls_screen');
+  gsap.to(".dg_afrs_screen", {
+      opacity: 0,
+      x: -3000,
+      visibility: 'hidden',
+      duration: 1,
+  });
+
+    gsap.to(".title_show_control previous_screen", {
       opacity: 0,
       display: 'none',
       duration: 1,
@@ -31,12 +40,14 @@ function videowallsactive() {
       duration: 1,
       visibility: 'visible',
     });
+
     gsap.to(".dg_lights_screen", {
       opacity: 0,
       x: 3000,
       visibility: 'hidden',
       duration: 1,
     });
+    
     gsap.to(".dg_sm_screen", {
       opacity: 0,
       x: 3000,
@@ -49,12 +60,7 @@ function videowallsactive() {
       visibility: 'hidden',
       duration: 1,
     });
-    gsap.to(".dg_afrs_screen", {
-      opacity: 0,
-      x: -3000,
-      visibility: 'hidden',
-      duration: 1,
-    });
+    
     gsap.to(".dg_sc_screen", {
       opacity: 0,
       x: -3000,

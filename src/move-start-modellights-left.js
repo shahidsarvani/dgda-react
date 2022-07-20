@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
-
+import {addHistory} from './history';
+ 
 function move_start_modellights_left() {
+  addHistory('move_start_modellights_left', 'ml_lights_screen');
   gsap.to(".title_night_scene", {
     opacity: 1,
     display: 'block',

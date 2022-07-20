@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
+import {addHistory} from './history';
 
 function move_start_basementfloors_left() {
+  addHistory('move_start_basementfloors_left', 'dg_bf_screen');
   gsap.to(".title_basement_floors", {
     opacity: 1,
     display: 'block',
