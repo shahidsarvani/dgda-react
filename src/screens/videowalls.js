@@ -122,15 +122,15 @@ class Videowalls extends Component {
         }
     }
     async runVolUpApi() {
-        let res = await axios.get('volume/increase');
+        let res = await axios.get('room/'+this.state.roomid+'/volume/increase');
         console.log(res);
     }
     async runVolDownApi() {
-        let res = await axios.get('volume/decrease');
+        let res = await axios.get('room/'+this.state.roomid+'/volume/decrease');
         console.log(res);
     }
     async runVolMuteApi() {
-        let res = await axios.get('volume/mute');
+        let res = await axios.get('room/'+this.state.roomid+'/volume/mute');
         console.log(res);
     }
     async componentDidMount() {}
