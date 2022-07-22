@@ -37,7 +37,7 @@ class Showcontrols extends Component {
         });
         move_backto_startshow();
         if(res.data.response){
-            this.props.onSetVideo(res.data.response+0.001);
+            this.props.onSetVideo(res.data.response+0.001, lang);
         }       
     }
     render() {

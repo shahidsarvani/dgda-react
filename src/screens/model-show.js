@@ -18,13 +18,13 @@ import React, { Component } from 'react';
 class Modelshow extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             roomid: '',
             video_length: 0,
             countdown: 0,
             time_spend: 0,
             status:'',
+            video_lang: '',
             mystyle: {
                     width: "0%",
                     display: "block",
@@ -58,6 +58,7 @@ class Modelshow extends Component {
         }))
       }
       startTimer() {
+        this.transition();
         this.timer = null;
         this.timer = setInterval(() => this.tick(), 1000);
       }
@@ -93,18 +94,29 @@ class Modelshow extends Component {
                 roomid: this.props.roomId
             })
         }
-        if(this.props.video !== '' && (prevProps.video !== this.props.video)) {
+        if(this.props.video !== '' && (prevProps.video !== this.props.video) || (prevProps.video_lang !== this.props.video_lang)) {
             this.setState({
                 video_length: this.props.video,
                 countdown: this.props.video,
+                video_lang: this.props.video_lang,
+                time_spend: 0,
             })
+            console.log('just component updated');
+            this.transition();
+            this.timer = null;
             this.timer = setInterval(() => this.tick(), 1000);
         }
         
     }
+    componentWillUnmount() {
+        this.transition();
+    }
+    
     async runPlayApi() {
         if(this.state.status === 'stop') {
-            let res = await axios.post('room/'+this.state.roomid+'/play_scene');
+            let res = await axios.post('room/'+this.state.roomid+'/play_scene', {
+                lang: this.state.video_lang
+            });
             this.startAgain();
             this.startTimer()
         }

@@ -17,6 +17,7 @@ class Diriyahroomwrap extends Component {
       hasmodal: (this.props.hasModal) ? this.props.hasModal: 0,
       lang: (this.props.lang) ? this.props.lang : '',
       video: '',
+      video_lang: '',
     }
   }
   async componentDidUpdate(prevProps, prevState) {
@@ -45,16 +46,16 @@ class Diriyahroomwrap extends Component {
     this.setState({roomid: room.id});
     this.setState({hasmodal: room.has_model});
   }
-  setVideo = (video) => {
-    this.setState({video: video});
+  setVideo = (video, lang) => {
+    this.setState({video: video, video_lang: lang});
   }
 
   render() {
     return (
       <div className="diriyah_room_page">
         <Afterroomselection hasModal={this.state.hasmodal} roomId={this.state.roomid} lang={this.state.lang}/>
-        <Modelshow roomId={this.state.roomid} lang={this.state.lang} video={this.state.video}/>
-        <Showcontrols roomId={this.state.roomid} lang={this.state.lang} onSetVideo={this.setVideo}/>
+        <Modelshow roomId={this.state.roomid} lang={this.state.lang} video={this.state.video} video_lang={this.state.video_lang}/>
+        <Showcontrols roomId={this.state.roomid} lang={this.state.lang}  onSetVideo={this.setVideo}/>
         <Modellights roomId={this.state.roomid} lang={this.state.lang}/>
         <Basementfloors roomId={this.state.roomid} lang={this.state.lang}/>
         <Videowalls roomId={this.state.roomid} lang={this.state.lang}/>
