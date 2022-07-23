@@ -82,9 +82,13 @@ class Videowalls extends Component {
         return ret;
     }
     async runPlayApi(zoneid) {
+        if(this.state.status === 'start') {
+            return;
+        }
         if(this.state.status === 'stop') {
+            let res = await axios.get('play_wall_video/'+this.state.zoneid);
 
-            let res = await axios.post('zone/'+this.state.zoneid+'/play_scene');
+            // let res = await axios.post('zone/'+this.state.zoneid+'/play_scene');
             this.startAgain();
             this.startTimer();
         }

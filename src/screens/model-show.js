@@ -113,6 +113,9 @@ class Modelshow extends Component {
     }
     
     async runPlayApi() {
+        if(this.state.status === 'start') {
+            return;
+        }
         if(this.state.status === 'stop') {
             let res = await axios.post('room/'+this.state.roomid+'/play_scene', {
                 lang: this.state.video_lang
