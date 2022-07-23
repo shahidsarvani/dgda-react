@@ -28,15 +28,15 @@ class Videowalls extends Component {
             time_spend: 0,
             status:'',
             mystyle: {
-                    width: "0%",
-                    display: "block",
-                    height: "4.3628px",
-                    backgroundColor: "#003741",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    top: "0",
-                    left: "0",
-                }
+                width: "0%",
+                display: "block",
+                height: "4.3628px",
+                backgroundColor: "#003741",
+                borderRadius: "50px",
+                position: "absolute",
+                top: "0",
+                left: "0",
+            }
         }
     }
     tick() {
@@ -144,7 +144,8 @@ class Videowalls extends Component {
                 return;
             
             let lang = this.props.lang;
-            let res = await axios.get('room/'+roomid+'/zones/'+lang);
+            //let res = await axios.get('room/'+roomid+'/zones/'+lang); 
+            let res = await axios.get('room/'+roomid+'/get_play_wall_video/'+lang);
             this.setState({
                 zones: res.data.response
             })
@@ -156,7 +157,8 @@ class Videowalls extends Component {
         
     }
     async runZonePlaySceneApi(zoneid) {
-        let res = await axios.post('zone/'+zoneid+'/play_scene');
+        //let res = await axios.post('zone/'+zoneid+'/play_scene');
+        let res = await axios.get('play_wall_video/'+zoneid);
         let length = res.data.response;
         this.setState({
             video_length: length,
@@ -249,7 +251,7 @@ class Videowalls extends Component {
                                                 return (
                                                     <li className="dg_media_item" key={zone.id}>
                                                         <a href="#" onClick={() => this.runZonePlaySceneApi(zone.id)}>
-                                                            <h3>{`${index+1}. ${zone.name}`}</h3>
+                                                            <h3>{`${index+1}. ${zone.title}`}</h3>
                                                         </a>
                                                     </li>
                                                 )
