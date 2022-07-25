@@ -107,7 +107,10 @@ class Header extends Component {
                                                         return (
                                                         <li className="nav-item nav-item-en1">
                                                             <a className={`nav-link nav-link-en1 ${(this.props.roomId == room.id) ? 'active' : ''}`} href="#" onClick={() => this.openRoomDetails(room.id)}>
-                                                                <img src={room.image} alt="diriyah"/>
+                                                                {
+                                                                    (this.state.lang === 'ar') ? <img src={room.icon_ar} alt="diriyah"/> : <img src={room.icon} alt="diriyah"/>
+                                                                }
+                                                                
                                                                 { (this.state.lang === '') && (
                                                                         <span>{room.name}</span>
                                                                     )

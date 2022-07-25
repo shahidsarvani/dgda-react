@@ -171,8 +171,27 @@ class Videowalls extends Component {
 
         const current = length;
         this.setState({ countdown: current - 1 , time_spend: 0, status: 'start'});
+        this.transition();
         this.timer = null;
         this.timer = setInterval(() => this.tick(), 1000);
+    }
+    async runForwarAPI() {
+        let timeforward = this.state.time_spend + 10;
+        if(timeforward > this.state.video_length)
+            return;
+
+        let res = await axios.get('room/'+this.state.roomid+'/video/forward');
+        this.state.time_spend = this.state.time_spend + 10;
+        this.state.countdown = this.state.countdown - 10;
+    }
+    async runBackwardAPI() {
+        let timebackward = this.state.time_spend - 10;
+        if(timebackward <= 0)
+            return;
+
+        let res = await axios.get('room/'+this.state.roomid+'/video/back');
+        this.state.time_spend = this.state.time_spend - 10;
+        this.state.countdown = this.state.countdown + 10;
     }
     startTimer() {
         this.timer = null;
@@ -206,7 +225,7 @@ class Videowalls extends Component {
                                 <div className="sm_video_controls">
                                     <ul className="sm_vc_list">
                                         <li className="sm_vc_item sm_vc_fastrewind_item">
-                                            <a href="#">
+                                            <a href="#" onClick={() => this.runBackwardAPI()}> 
                                                 <img src={fast_rewind} alt="sm-video-fastrewind"/>
                                             </a>
                                         </li>
@@ -226,7 +245,7 @@ class Videowalls extends Component {
                                             </a>
                                         </li>
                                         <li className="sm_vc_item sm_vc_fastforward_item">
-                                            <a href="#">
+                                            <a href="#" onClick={() => this.runForwarAPI()}>
                                                 <img src={fast_forward} alt="sm-video-fastforward"/>
                                             </a>
                                         </li>

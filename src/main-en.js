@@ -51,7 +51,7 @@ class Mainenglish extends Component {
   render() {
     return (
       <main className="main_en">
-        <Roomselection onSetRoomID={this.setRoom} />
+        <Roomselection onSetRoomID={this.setRoom} lang={this.state.lang} />
         <Diriyahroomwrap roomId={this.state.roomid} lang={this.state.lang}  hasModal={this.state.hasmodal} />
         <Wadisaferroomwrap roomId={this.state.roomid} lang={this.state.lang}/>
         {/* <Afterroomselection hasModal={this.state.hasmodal} />

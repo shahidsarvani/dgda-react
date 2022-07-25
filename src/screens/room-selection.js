@@ -14,7 +14,8 @@ class Roomselection extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            rooms: []
+            rooms: [],
+            lang: '',
         }
     }
     async componentDidMount() {
@@ -25,8 +26,16 @@ class Roomselection extends Component {
                 rooms: res.data.response
             })
             //this.rooms = res.data.response;
+            this.state.lang = this.props.lang;
         } catch (err) {
             console.log(err);
+        }
+    }
+    async componentDidUpdate(prevProps, prevState) {
+        if(prevProps.lang === this.props.lang) {
+            this.setState({
+                lang: this.props.lang
+            })
         }
     }
     openRoomDetails(roomid) {
@@ -50,7 +59,9 @@ class Roomselection extends Component {
                                 <div className="col-6 dg_rs_col" key={room.id}>
                                     <a href="#" onClick={() => this.openRoomDetails(room.id)}>
                                         <div id={`${room.name}-room`} className="dg_rs_wrap">
-                                            <img className="dg_rs_img" src={room.image} alt="diriyah"/>
+                                            {
+                                                (this.state.lang === 'ar') ? <img className="dg_rs_img" src={room.image_ar} alt="diriyah"/> : <img className="dg_rs_img" src={room.image} alt="diriyah"/>
+                                            }
                                             <h3 className="rs_ar_heading">{room.name_ar}</h3>
                                             <h3>{room.name}</h3>
                                         </div>
