@@ -1072,7 +1072,7 @@ span.sm_video_start_timer {
 .dg_media_list {
   list-style: none;
   padding: 0 !important;
-  max-height: 430px;
+  max-height: 640px;
   overflow-y: scroll;
   overflow-x: hidden;
 }

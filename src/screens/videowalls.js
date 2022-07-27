@@ -110,7 +110,7 @@ class Videowalls extends Component {
     }
     async runStopApi() {
         if(this.state.status != 'stop') {
-            let res = await axios.post('room/'+this.state.room_id+'/video/stop');
+            let res = await axios.post('room/' + this.state.room_id + '/video/stop');
             this.setState({
                 countdown: this.state.video_length,
                 time_spend: 0,
@@ -126,19 +126,20 @@ class Videowalls extends Component {
         }
     }
     async runVolUpApi() {
-        let res = await axios.get('room/'+this.state.roomid+'/volume/increase');
-        console.log(res);
+        let res = await axios.get('room/' + this.state.room_id + '/volume/increase');
+        // console.log(res);
     }
     async runVolDownApi() {
-        let res = await axios.get('room/'+this.state.roomid+'/volume/decrease');
-        console.log(res);
+        let res = await axios.get('room/' + this.state.room_id + '/volume/decrease');
+        // console.log(res);
     }
     async runVolMuteApi() {
-        let res = await axios.get('room/'+this.state.roomid+'/volume/mute');
-        console.log(res);
+        let res = await axios.get('room/' + this.state.room_id + '/volume/mute');
+        // console.log(res);
     }
     async componentDidMount() {}
     async componentDidUpdate(prevProps, prevState) {
+        console.log('in componentDidUpdate, this.props.roomId: ' + this.props.roomId + ', this.state.room_id: ' + this.state.room_id);
         if((this.props.roomId !== '') && (prevProps.roomId != this.props.roomId) || (prevProps.lang !== this.props.lang)) {
             let roomid = this.props.roomId;
             if (typeof roomid === 'undefined')
@@ -156,9 +157,9 @@ class Videowalls extends Component {
             this.setState({
                 room_id: roomid,
             })
-            console.log(res.data.response);
+            // console.log(res.data.response);
         }
-        
+        console.log('ending componentDidUpdate, this.props.roomId: ' + this.props.roomId + ', this.state.room_id: ' + this.state.room_id);
     }
     async runZonePlaySceneApi(zoneid) {
         //let res = await axios.post('zone/'+zoneid+'/play_scene');
@@ -180,7 +181,7 @@ class Videowalls extends Component {
         if(timeforward > this.state.video_length)
             return;
 
-        let res = await axios.get('room/'+this.state.roomid+'/video/forward');
+        let res = await axios.get('room/'+this.state.room_id+'/video/forward');
         this.state.time_spend = this.state.time_spend + 10;
         this.state.countdown = this.state.countdown - 10;
     }
@@ -189,7 +190,7 @@ class Videowalls extends Component {
         if(timebackward <= 0)
             return;
 
-        let res = await axios.get('room/'+this.state.roomid+'/video/back');
+        let res = await axios.get('room/'+this.state.room_id+'/video/back');
         this.state.time_spend = this.state.time_spend - 10;
         this.state.countdown = this.state.countdown + 10;
     }

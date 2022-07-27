@@ -43,7 +43,7 @@ class Mainenglish extends Component {
   }
 
   setRoom = (room) => {
-    console.log(room);
+    // console.log(room);
     this.setState({roomid: room.id});
     this.setState({hasmodal: room.has_model});
   }

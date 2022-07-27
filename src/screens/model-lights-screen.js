@@ -48,7 +48,7 @@ class Modellights extends Component {
             this.setState({
                 phases: res.data.response
             })
-            console.log(res.data.response);
+            // console.log(res.data.response);
         }
         
     }
@@ -62,7 +62,7 @@ class Modellights extends Component {
                         "lang": lang,
                         }
                     );
-        console.log(res);
+        // console.log(res);
     }
     render() {
         return (
