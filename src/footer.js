@@ -17,6 +17,8 @@ import Translator from './translator';
 import React, { Component } from 'react';
 import {removeHistory} from './history';
 import {addHistory} from './history';
+import axios from 'axios';
+import './axios';
 
 class Footer extends Component {
     constructor(props) {
@@ -38,7 +40,7 @@ class Footer extends Component {
         //     this.tran = new Translator(this.props.lang);   
         // }
     }
-    setMenu(menu) {
+    async setMenu(menu) {
         this.setState({
             menu: menu,
         })
@@ -48,7 +50,13 @@ class Footer extends Component {
                 //move_step_back();
               break;
             case 'main_page':
+                ///api/room/:id/play_default
                 //addHistory('move_homeactive_en');
+                let res = await axios.get('rooms');
+                const rooms =  res.data.response;
+                rooms.map(room => {
+                    let default_play = axios.get('room/'+room.id+'/play_default');
+                })
                 move_homeactive_en();
               break;
             case 'model':
