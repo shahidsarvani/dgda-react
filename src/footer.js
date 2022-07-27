@@ -52,11 +52,10 @@ class Footer extends Component {
             case 'main_page':
                 ///api/room/:id/play_default
                 //addHistory('move_homeactive_en');
-                let res = await axios.get('rooms');
-                const rooms =  res.data.response;
-                rooms.map(room => {
-                    let default_play = axios.get('room/'+room.id+'/play_default');
-                })
+                console.log('on english');
+                let default_play = axios.post('play_default', {
+                    lang: this.props.lang,
+                });
                 move_homeactive_en();
               break;
             case 'model':
