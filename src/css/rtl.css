@@ -15,7 +15,9 @@ html[lang="ar"], [lang="ar"] div, [lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3
 [lang="ar"] body {
     direction:rtl;
 }
-
+[lang="ar"] .mdistrictis_list{
+    text-align: right !important;
+}
 [lang="ar"] .dg_ftar_navtitle_link{
     display: flex !important;
 }

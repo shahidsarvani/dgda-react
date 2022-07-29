@@ -71,6 +71,30 @@ class Modellights extends Component {
                 <section id="ml_lights_screen" className="ml_lights_screen">
                     <div className="container ml_lights_container">
                         <div className="row ml_lights_row">
+                            {/* <div className='col-4 mdistrictis_col1'>
+                                <ul className='mdistrictis_list'>
+                                    <li className='mdistrictis_list_item'><a className='active' href="#">HISTORICAL BOUNDARIES</a></li>
+                                    <li className='mdistrictis_list_item'><a href="#">DIRIYAH PHASE 1</a></li>
+                                    <li className='mdistrictis_list_item'><a href="#">WADI HANIFAH</a></li>
+                                    <li className='mdistrictis_list_item'><a href="#">DIRIYAH PHASE 2</a></li>
+                                    <li className='mdistrictis_list_item'><a href="#">DIRIYAH PHASE 3</a></li>
+                                </ul>
+                            </div>
+                            <div className='col-4 mdistrictis_col1'>
+                                <ul className='mdistrictis_list'>
+                                    <li className='mdistrictis_list_item'><a href="#">RETAIL</a></li>
+                                    <li className='mdistrictis_list_item'><a href="#">HOSPITALITY</a></li>
+                                    <li className='mdistrictis_list_item'><a href="#">OFFICES</a></li>
+                                    <li className='mdistrictis_list_item'><a href="#">RESIDENTIAL</a></li>
+                                    <li className='mdistrictis_list_item'><a href="#">CULTURE & EDUCATION</a></li>
+                                </ul>
+                            </div>
+                            <div className='col-4 mdistrictis_col1'>
+                                <ul className='mdistrictis_list'>
+                                    <li className='mdistrictis_list_item'><a href="#">WALKABILITY & OPEN SPACES</a></li>
+                                    <li className='mdistrictis_list_item'><a href="#">CONNECTIVITY & INFRASTRUCTURE</a></li>
+                                </ul>
+                            </div> */}
                             <div className="col_12 ml_content_col">
                             {
                                 this.state.phases.map((phase) => {
