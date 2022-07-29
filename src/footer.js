@@ -27,6 +27,7 @@ class Footer extends Component {
         this.state = {
             phases: [],
             menu: 'model',
+            room_id: '',
         }
     }
     async componentDidMount() {
@@ -35,10 +36,13 @@ class Footer extends Component {
         this.tran = new Translator(nextProps.lang);
     }
     async componentDidUpdate(prevProps, prevState) {
-        // if(prevProps.lang !== this.props.lang) {
-        //     this.tran = null;
-        //     this.tran = new Translator(this.props.lang);   
-        // }
+        if(prevProps.roomId !== this.props.roomId) {
+            this.setState({
+                room_id: this.props.roomId,
+            })
+            // this.tran = null;
+            // this.tran = new Translator(this.props.lang);   
+        }
     }
     async setMenu(menu) {
         this.setState({
@@ -121,7 +125,8 @@ class Footer extends Component {
                                                 </div>
                                             </a>
                                         </li>
-                                        <li className={`dg_ft_nav_item dg_ft_nav_item1 ${(this.state.menu === 'model') ? 'active' : ''}`}>
+                                        { (this.state.room_id === 1) ? '' :
+                                            <li className={`dg_ft_nav_item dg_ft_nav_item1 ${(this.state.menu === 'model') ? 'active' : ''}`}>
                                             <a href="#" onClick={() => this.setMenu('model')} data-fromDir="left">
                                                 <div class="dg_ft_nav_img">
                                                     <img src={model_icon} alt="Model"/>
@@ -131,6 +136,7 @@ class Footer extends Component {
                                                 </div>
                                             </a>
                                         </li>
+                                        }
                                         <li className={`dg_ft_nav_item dg_ft_nav_item4 ft_videowalls ${(this.state.menu === 'video_wall') ? 'active' : ''}`}>
                                             <a href="#" onClick={() => this.setMenu('video_wall')} data-fromDir="right">
                                                 <div class="dg_ft_nav_img">

@@ -42,7 +42,7 @@ class App extends Component {
         <Welcomesection />
         <Mainenglish  roomId={this.state.roomid} hasModal={this.state.hasmodal} onSetRoomID={this.setRoom} lang={this.state.lang}/>
         <Mainarabic/>
-        <Footeren  lang={this.state.lang}/>
+        <Footeren  lang={this.state.lang} roomId={this.state.roomid}/>
       </div>
     );
   }
