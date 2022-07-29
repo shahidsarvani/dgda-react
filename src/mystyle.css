@@ -62,7 +62,7 @@ img {
 }
 
 .mdistrictis_list li.mdistrictis_list_item{
-  margin-bottom: 110px;
+  margin-bottom: 160px;
 }
 
 .mdistrictis_list li.mdistrictis_list_item:last-child{
@@ -70,7 +70,8 @@ img {
 }
 
 .mdistrictis_col1{
-  margin-top: 180px !important;
+  /* margin-top: 180px !important;*/
+  columns: 3 auto;
 }
 
 .header-wrap{
@@ -957,7 +958,7 @@ span.sm_video_start_timer {
 
 
 
-/*////////////////////////////////MODEL LIGHTS SCREEN/////////////////////////////////*/
+/*////////////////////////////////MODEL DISTRICTS SCREEN/////////////////////////////////*/
 .ml_lights_screen {
   /* min-height: 90vh; */
   margin-bottom: 210px;

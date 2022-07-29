@@ -17,7 +17,8 @@ class Modellights extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            phases: []
+            phases: [],
+            activeZoneID: 0
         }
     }
     async componentDidMount() {
@@ -44,20 +45,23 @@ class Modellights extends Component {
             if(!roomid)
                 return;
 
-            let res = await axios.get('room/'+roomid+'/phases_with_zones/'+lang);
+            let res = await axios.get('room/' + roomid + '/phases_with_zones/' + lang);
             this.setState({
                 phases: res.data.response
             })
             // console.log(res.data.response);
         }
-        
     }
+    
     async runZoneApi(zoneid) {
         if(!zoneid)
             return;
+        this.setState({
+            activeZoneID: zoneid
+        })
 
         let lang = this.props.lang;
-        let res = await axios.post('zone/'+zoneid+'/play_scene',
+        let res = await axios.post('zone/' + zoneid + '/play_scene',
                         {
                         "lang": lang,
                         }
@@ -67,10 +71,30 @@ class Modellights extends Component {
     render() {
         return (
             <div className="model_lights_screen">
-
                 <section id="ml_lights_screen" className="ml_lights_screen">
                     <div className="container ml_lights_container">
                         <div className="row ml_lights_row">
+                            {
+                                this.state.phases.map((phase) => {
+                                    return (
+                                        <div className='mdistrictis_col1'>
+                                            <ul className='mdistrictis_list'>
+                                            {
+                                                phase.zones.map((zone) => {
+                                                    return (
+                                                        <li className='mdistrictis_list_item' key={zone.id}>
+                                                            <a href="#" className={`${(this.state.activeZoneID == zone.id) ? 'active' : ''}`} onClick={() => this.runZoneApi(zone.id)}>
+                                                                {zone.name}
+                                                            </a>
+                                                        </li>
+                                                    )
+                                                })
+                                            }
+                                            </ul>
+                                        </div>
+                                    )
+                                })
+                            }
                             {/* <div className='col-4 mdistrictis_col1'>
                                 <ul className='mdistrictis_list'>
                                     <li className='mdistrictis_list_item'><a className='active' href="#">HISTORICAL BOUNDARIES</a></li>
@@ -95,7 +119,7 @@ class Modellights extends Component {
                                     <li className='mdistrictis_list_item'><a href="#">CONNECTIVITY & INFRASTRUCTURE</a></li>
                                 </ul>
                             </div> */}
-                            <div className="col_12 ml_content_col">
+                            {/* <div className="col_12 ml_content_col">
                             {
                                 this.state.phases.map((phase) => {
                                     return (
@@ -123,7 +147,7 @@ class Modellights extends Component {
                                     )
                                 })
                             }
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </section>

@@ -139,7 +139,6 @@ class Videowalls extends Component {
     }
     async componentDidMount() {}
     async componentDidUpdate(prevProps, prevState) {
-        console.log('in componentDidUpdate, this.props.roomId: ' + this.props.roomId + ', this.state.room_id: ' + this.state.room_id);
         if((this.props.roomId !== '') && (prevProps.roomId != this.props.roomId) || (prevProps.lang !== this.props.lang)) {
             let roomid = this.props.roomId;
             if (typeof roomid === 'undefined')
@@ -157,9 +156,7 @@ class Videowalls extends Component {
             this.setState({
                 room_id: roomid,
             })
-            // console.log(res.data.response);
         }
-        console.log('ending componentDidUpdate, this.props.roomId: ' + this.props.roomId + ', this.state.room_id: ' + this.state.room_id);
     }
     async runZonePlaySceneApi(zoneid) {
         //let res = await axios.post('zone/'+zoneid+'/play_scene');
