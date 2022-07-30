@@ -8,6 +8,7 @@ import diriyah_icon from './images/icons/diriyah-icon.svg';
 import wadi_icon from './images/icons/wadi-safar-icon.svg';
 import move_main_left from './move-main-left';
 import move_wadi_left_en from './move-wadi-left-en';
+import videowallsactive from './move-videowallsactive';
 import './customjqjs';
 import './customfun';
 import React, { Component } from 'react';
@@ -66,6 +67,8 @@ class Header extends Component {
         let room = this.state.rooms.filter(room => room.id == roomid)[0];
         this.props.onSetRoomID(room);
         move_left_en();
+        if(roomid == process.env.REACT_APP_HIDE_MODEL_ROOM_ID) 
+            videowallsactive('videowallsactive');
     }
     render() {
         return (

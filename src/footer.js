@@ -125,7 +125,7 @@ class Footer extends Component {
                                                 </div>
                                             </a>
                                         </li>
-                                        { (this.state.room_id === 1) ? '' :
+                                        { (this.state.room_id == process.env.REACT_APP_HIDE_MODEL_ROOM_ID) ? '' :
                                             <li className={`dg_ft_nav_item dg_ft_nav_item1 ${(this.state.menu === 'model') ? 'active' : ''}`}>
                                             <a href="#" onClick={() => this.setMenu('model')} data-fromDir="left">
                                                 <div class="dg_ft_nav_img">

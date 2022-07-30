@@ -4,6 +4,7 @@ import diriyahRoom from '../images/room-diriyah.png';
 import wadiSafRoom from '../images/room-wadi-safar.png';
 import move_left_en from '../move-left-en';
 import move_wadi_left_en from '../move-wadi-left-en';
+import videowallsactive from '../move-videowallsactive';
 import { useState, useEffect } from 'react';
 import '../customjqjs';
 import axios from 'axios';
@@ -44,6 +45,8 @@ class Roomselection extends Component {
         this.props.onSetRoomID(room);
         //addHistory('move_left_en');
         move_left_en();
+        if(roomid == process.env.REACT_APP_HIDE_MODEL_ROOM_ID) 
+            videowallsactive('videowallsactive');
     }
     render() {
         return (
