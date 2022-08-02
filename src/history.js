@@ -28,7 +28,11 @@ export function addHistory(func, pram = '') {
 }
 export function removeHistory() {
   let storage = JSON.parse(window.localStorage.getItem('gdtd_history'));
-  if (!storage || storage.length == 1) return;
+  if (!storage || storage.length <= 1) {
+    console.log('======>>>>> History Cleared');
+    clearHistory();
+    return;
+  }
   //if(Array.isArray(storage.func)) {
     let popped = storage.pop();
     let lastele = storage[storage.length - 1].pram;

@@ -10,7 +10,7 @@ import '../customjqjs';
 import axios from 'axios';
 import '../axios';
 import React, { Component } from 'react';
-import {addHistory} from '../history';
+import {addHistory, clearHistory} from '../history';
 class Roomselection extends Component {
     constructor(props) {
         super(props);
@@ -40,7 +40,7 @@ class Roomselection extends Component {
         }
     }
     openRoomDetails(roomid) {
-
+        clearHistory();
         let room = this.state.rooms.filter(room => room.id == roomid)[0];
         this.props.onSetRoomID(room);
         //addHistory('move_left_en');

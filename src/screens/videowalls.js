@@ -94,7 +94,7 @@ class Videowalls extends Component {
         }
         if(this.state.status === 'pause')
         {
-            let res = await axios.get('room/'+this.state.room_id+'/video/resume');
+            let res = await axios.get('room/'+this.state.room_id+'/video/resume/0');
             this.startTimer();
         }
     }
@@ -109,7 +109,7 @@ class Videowalls extends Component {
         
     }
     async runStopApi() {
-        if(this.state.status != 'stop') {
+        //if(this.state.status != 'stop') {
             let res = await axios.post('room/' + this.state.room_id + '/video/stop');
             this.setState({
                 countdown: this.state.video_length,
@@ -123,7 +123,7 @@ class Videowalls extends Component {
                     width: "0%",
                 }
             }))
-        }
+        //}
     }
     async runVolUpApi() {
         let res = await axios.get('room/' + this.state.room_id + '/volume/increase');

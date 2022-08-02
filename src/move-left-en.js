@@ -94,21 +94,6 @@ function move_left_en() {
     x: 3000,
     duration: 1
   });
-
-  
-  
-
-  // gsap.fromTo(".dg_afrs_screen", {
-  //   opacity: 0,
-  //   x: -3000,
-  //   duration: 1,
-  //   visibility: 'hidden',
-  // }, {
-  //   opacity: 1,
-  //   x: 0,
-  //   duration: 1,
-  //   visibility: 'visible',
-  // });
   
   gsap.to(".dg_rs_screen", {
     opacity: 0,

@@ -125,7 +125,7 @@ class Modelshow extends Component {
         }
         if(this.state.status === 'pause')
         {
-            let res = await axios.get('room/'+this.state.roomid+'/video/resume');
+            let res = await axios.get('room/'+this.state.roomid+'/video/resume/1');
             this.startTimer();
         }
     }
@@ -140,7 +140,7 @@ class Modelshow extends Component {
         
     }
     async runStopApi() {
-        if(this.state.status != 'stop') {
+        //if(this.state.status != 'stop') {
             let res = await axios.post('room/'+this.state.roomid+'/video/stop');
             this.setState({
                 countdown: this.state.video_length,
@@ -154,7 +154,8 @@ class Modelshow extends Component {
                     width: "0%",
                 }
             }))
-        }
+            //this.forceUpdate();
+        //}
     }
     async runVolUpApi() {
         let res = await axios.get('room/'+this.state.roomid+'/volume/increase');

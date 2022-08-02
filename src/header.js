@@ -59,13 +59,15 @@ class Header extends Component {
             this.props.onSetLang('ar');
             addHistory('move_left_ar', 'dg_afrs_screen');
         }
-        
-    
-        
     }
     openRoomDetails(roomid) {
         let room = this.state.rooms.filter(room => room.id == roomid)[0];
         this.props.onSetRoomID(room);
+
+        let default_play = axios.post('play_default', {
+            lang: this.props.lang,
+        });
+        
         move_left_en();
         if(roomid == process.env.REACT_APP_HIDE_MODEL_ROOM_ID) 
             videowallsactive('videowallsactive');
