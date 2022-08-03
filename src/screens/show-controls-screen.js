@@ -37,7 +37,10 @@ class Showcontrols extends Component {
         });
         move_backto_startshow();
         if(res.data.response){
-            this.props.onSetVideo(res.data.response+0.001, lang);
+            let precision = 100; // 2 decimals
+            let randomnum = Math.floor(Math.random() * (10 * precision - 1 * precision) + 1 * precision) / (1*precision);
+            let length = res.data.response+randomnum;
+            this.props.onSetVideo(length, lang, 'playnow');
         }       
     }
     render() {
