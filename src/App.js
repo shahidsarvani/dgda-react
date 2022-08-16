@@ -1,6 +1,7 @@
 import './App.css';
 import './bootstrap.min.css';
 import './mystyle.css';
+import './css/responsive-portrait.css';
 import './css/rtl.css';
 import './customjqjs';
 import Headeren from './header';
