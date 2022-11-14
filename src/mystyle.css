@@ -31,6 +31,32 @@ html {
   font-family: "GraphikArabic-SemiBold" !important;
 }
 
+.battery-status{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  border: 2px solid #c87e59;
+  padding: 6px 0px 0px;
+  color: #c87e59;
+  width: 150px;
+}
+.battery-status::after{
+  content: '';
+  width: 20px;
+  height: 30px;
+  background-color: #c87e59;
+  position: absolute;
+  top: 18px;
+  left: -21px;
+  border-radius: 10px 0 0 10px;
+}
+.header-wrap{
+  overflow: hidden;
+}
+
 body {
   background-color: #f4e6d2 !important;
   overflow: hidden;

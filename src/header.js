@@ -1,4 +1,5 @@
 import './bootstrap.min.css';
+//import "bootstrap-icons/font/bootstrap-icons.css";
 import './mystyle.css';
 import logo from './images/dgda_logo.svg';
 import move_left_en from './move-left-en';
@@ -24,6 +25,8 @@ class Header extends Component {
         this.state = {
             rooms: [],
             lang: '',
+            level: 0,
+            charging: false,
         }
     }
     componentWillUpdate(nextProps, nextState) {
@@ -40,8 +43,32 @@ class Header extends Component {
         } catch (err) {
             console.log(err);
         }
+
+
+        var betteryIntr = setInterval(() => {
+            console.log('going to call');
+            this.betterystatus();
+        }, 10000);
         
     }
+
+    handleChange (level, charging ) {
+        console.log(level, charging);
+        this.setState({
+            level: level,
+            charging: charging,
+        })
+    }
+    async betterystatus() {
+        console.log('get status');
+        var battery;
+        await navigator.getBattery().then(bat => {
+          battery = bat;
+          battery.addEventListener("levelchange", this.handleChange(battery.level, battery.charging));
+          battery.addEventListener("chargingchange", this.handleChange(battery.level, battery.charging));
+        });
+        this.handleChange(battery.level, battery.charging);
+     }
     setLang(lang) {
         if(this.state.lang == 'ar') {
             this.setState({
@@ -76,7 +103,35 @@ class Header extends Component {
         return (
             // <div className={`header-wrap  ${(this.state.lang == 'ar') ? 'header_ar' : 'header_en'} ${(this.state.lang == 'en') ? 'header_en' : ''}`}>
             <div className={`header-wrap  ${(this.state.lang == 'ar') ? 'header_ar' : 'header_en'}`}>
-
+            <ul className="navbar-nav battery-status">
+            {
+                this.state.rooms.map( (room) => {
+                    return (
+                    <li className="nav-item nav-item-en1">
+                        <a className={`nav-link nav-link-en1 ${(this.props.roomId == room.id) ? 'active' : ''}`} href="#" onClick={() => this.openRoomDetails(room.id)}>
+                            {
+                                (this.state.lang === 'ar') ? <img src={room.icon_ar} alt="diriyah"/> : <img src={room.icon} alt="diriyah"/>
+                            }
+                            
+                            { (this.state.lang === '') && (
+                                    <span>{room.name}</span>
+                                )
+                            }
+                            { (this.state.lang === 'ar') && (
+                                    <span>{room.name_ar}</span>
+                                )
+                            }
+                        </a>
+                    </li>
+                    )
+                })
+            }
+                <li className="nav-item nav-item-battery">
+                    <div className={`banner ${this.state.charging ? "charging" : ""}`}>
+                        <i class="bi bi-battery"></i>{this.state.level * 100}%
+                    </div>
+                </li>
+            </ul>
             <header className='header-app'>
                     <div className="container diri_header_cont">
                         <div className="header_inner">
@@ -106,30 +161,7 @@ class Header extends Component {
                                     <div className="col-31 nav_col_1">
                                         <nav className="navbar navbar-expand-sm navbar_dir bg-transparent">
                                             <div className="nav_cp_dp collapse navbar-collapse btn-10" id="collapsibleNavbar">
-                                            <ul className="navbar-nav">
-                                                {
-                                                    this.state.rooms.map( (room) => {
-                                                        return (
-                                                        <li className="nav-item nav-item-en1">
-                                                            <a className={`nav-link nav-link-en1 ${(this.props.roomId == room.id) ? 'active' : ''}`} href="#" onClick={() => this.openRoomDetails(room.id)}>
-                                                                {
-                                                                    (this.state.lang === 'ar') ? <img src={room.icon_ar} alt="diriyah"/> : <img src={room.icon} alt="diriyah"/>
-                                                                }
-                                                                
-                                                                { (this.state.lang === '') && (
-                                                                        <span>{room.name}</span>
-                                                                    )
-                                                                }
-                                                                { (this.state.lang === 'ar') && (
-                                                                        <span>{room.name_ar}</span>
-                                                                    )
-                                                                }
-                                                            </a>
-                                                        </li>
-                                                        )
-                                                    })
-                                                }
-                                                </ul>
+                                            
                                             </div>
                                         </nav>
                                     </div>
