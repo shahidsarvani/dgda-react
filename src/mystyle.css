@@ -44,8 +44,8 @@ html {
   width: 150px;
 }
 .battery-status.charging{
-  border: 2px solid #2cdd17;
-  color: #2cdd17;
+  border: 2px solid #12a501;
+  color: #12a501;
 }
 .battery-status::after{
   content: '';
@@ -58,7 +58,7 @@ html {
   border-radius: 10px 0 0 10px;
 }
 .battery-status.charging::after{
-  background-color: #2cdd17;
+  background-color: #12a501;
 }
 .header-wrap{
   overflow: hidden;
