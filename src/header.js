@@ -103,7 +103,7 @@ class Header extends Component {
         return (
             // <div className={`header-wrap  ${(this.state.lang == 'ar') ? 'header_ar' : 'header_en'} ${(this.state.lang == 'en') ? 'header_en' : ''}`}>
             <div className={`header-wrap  ${(this.state.lang == 'ar') ? 'header_ar' : 'header_en'}`}>
-            <ul className="navbar-nav battery-status">
+            <ul className={`navbar-nav battery-status ${this.state.charging ? "charging" : ""}`}>
             {
                 this.state.rooms.map( (room) => {
                     return (
@@ -127,7 +127,7 @@ class Header extends Component {
                 })
             }
                 <li className="nav-item nav-item-battery">
-                    <div className={`banner ${this.state.charging ? "charging" : ""}`}>
+                    <div className="banner">
                         <i class="bi bi-battery"></i>{this.state.level * 100}%
                     </div>
                 </li>
