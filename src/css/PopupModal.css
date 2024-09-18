@@ -1,0 +1,53 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  width: 2736px;
+  height: 1824px;
+  /* overflow: hidden; */
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: #333;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 2736px;
+  max-height: 1824px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative; /* For positioning the close button */
+  overflow: auto;
+  padding: 0px !important;
+}
+
+.close-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: #e39b68;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.close-button:hover {
+  background-color: #18ae63; /* Darker red on hover */
+}
